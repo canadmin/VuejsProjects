@@ -12,13 +12,18 @@
         <button v-on:click="showAlert">sayac Goster</button>
         <button v-on:click="counter++">Birer birer arttir</button>
         <p>{{counter}}</p>
+        <!-- dom tarafından sağlanan event objesinden event verisi almak için-->
+        <p v-on:mousemove="koordinatGuncelle">Sayfa Koordinatları{{ x }},{{ y }}</p>
     </div>
 </body>
 <script>
         new Vue({
             el : "#app",
             data : {
-                counter : 0
+                counter : 0,
+                x : 0,
+                y : 0
+
             },
             methods : {
                 plus : function(){
@@ -26,6 +31,10 @@
                 },
                 showAlert :function(){
                     alert(this.counter);
+                },
+                koordinatGuncelle : function(event){
+                    this.x = event.clientX;
+                    this.y = event.clientY;
                 }
             }
         });
