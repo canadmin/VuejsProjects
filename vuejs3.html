@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <title>Page Title</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+<body>
+    <!-- event listener-->
+    <div id="app">
+        <button v-on:click="plus">sayac arttır</button>
+        <button v-on:click="showAlert">sayac Goster</button>
+        <button v-on:click="counter++">Birer birer arttir</button>
+        <p>{{counter}}</p>
+    </div>
+</body>
+<script>
+        new Vue({
+            el : "#app",
+            data : {
+                counter : 0
+            },
+            methods : {
+                plus : function(){
+                    this.counter+=2;
+                },
+                showAlert :function(){
+                    alert(this.counter);
+                }
+            }
+        });
+</script>
+</html>
