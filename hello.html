@@ -1,0 +1,32 @@
+<html>
+    <head>
+        <title>
+            Deneme
+        </title>
+        <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    </head>
+<body>
+    <div id="app">
+        <h1 v-once>{{title}} <a v-bind:href="link">Tikla</a></h1>
+        <hr>
+        <input type="text" v-on:input="change">
+        <p>{{description}}</p>
+    </div>
+</body>    
+<script>
+new Vue({
+    el : "#app",
+    data : {
+        title : "merhaba Vuejs",
+        description : "bu bir açıklamadır.",
+        link :"https://www.google.com/"   
+    },
+    methods : {
+        change : function(event){
+            this.title="Merhaba"
+            this.description=event.target.value;
+        }
+    }
+});
+</script>
+</html>
