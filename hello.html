@@ -7,13 +7,19 @@
     </head>
 <body>
     <div id="app">
+        <!-- v-once aşağıdaki fonksiyona girmeden önce data içerisindeki title datasını getiriyor.-->
+        <!-- v:bind aşağıdaki data içerisindeki link alanını getirip linkliyor. bunun sebebi vuejs attribute üzerinde böyle çalışıyor.-->
         <h1 v-once>{{title}} <a v-bind:href="link">Tikla</a></h1>
         <hr>
+        <!--Aşağıdaki input ta yapılan v-b direvtive işlemi input ile bir etkileşim olduğunda change adlı metodu çalıştırmasını sağlıyor-->
         <input type="text" v-on:input="change">
         <p>{{description}}</p>
     </div>
 </body>    
 <script>
+    /*
+    *Aşağıda yapılmak istenen çalışma zamanında vue nesnesi oluşturmak bunu id si app olan div ile bağlamak ve ardından içerisinde kullanılacak değeleri data içerisinde tutumak
+    */
 new Vue({
     el : "#app",
     data : {
