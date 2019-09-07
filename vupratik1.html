@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+        <meta charset='utf-8'>
+
+    <title>Document</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+<body>
+    <div id="pratik">
+        <p>{{isim}} {{yas}}</p>
+        <p>{{yas* 10}}</p>  
+        <p>{{randomSayi()}}</p>  
+    </div>
+
+</body>
+<script>
+    new Vue({
+        el : "#pratik",
+        data : {
+            isim: "Barancan Yardımcı",
+            yas : 22,
+        },
+        methods : {
+            randomSayi :function(){
+                return parseInt(Math.random() *10);
+            }
+        }
+    });
+</script>
+</html>

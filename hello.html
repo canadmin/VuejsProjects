@@ -7,7 +7,9 @@
     </head>
 <body>
     <div id="app">
-        <!-- v-once aşağıdaki fonksiyona girmeden önce data içerisindeki title datasını getiriyor.-->
+        <!-- v-once aşağıdaki fonksiyona girmeden önce data içerisindeki title datasını getiriyor vue js benim templete render ettikten sonra bazu bilgilerin
+         dom üzerinde değişmesini istemediğim zamanlarda kullanıyorum   
+        -->
         <!-- v:bind aşağıdaki data içerisindeki link alanını getirip linkliyor. bunun sebebi vuejs attribute üzerinde böyle çalışıyor.-->
         <h1 v-once>{{title}} <a v-bind:href="link">Tikla</a></h1>
         <hr>

@@ -3,8 +3,27 @@
 <head>
     <meta charset='utf-8'>
     <title>Page Title</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
 </head>
 <body>
+    <div id="app">
+        <!-- aşağıdaki süslü parantezlere string interpolation deniyor verileri string gibi getirir. dolayısıyla blogLink tamamen string döner-->
+    <p>{{blogLink}}</p>
+    <!-- vuenin htmlleri ayırabilmesi için-->
+    <p v-html="blogLink"></p>
+    </div>
+
     
 </body>
+
+<script>
+
+new Vue({
+    el:"#app",
+    data:{
+        blogLink : "<a href='https://www.google.com'>Link</a>"
+    }
+
+});
+</script>
 </html>
