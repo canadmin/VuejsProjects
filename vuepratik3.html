@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+<body>
+   <div id="app">
+    <p>Şu anki değer : {{value}}</p>
+    <p><button @click="value+=5">5 Arttır</button></p>
+    <button @click="value++">Arttır</button>
+    <!--data içerisindeki timeout veri göndermek için timeout kullandık-->
+    <input type="text"  v-model="timeout">
+    <p>{{result}}</p>
+   </div>
+    
+</body>
+<script>
+new Vue({
+    el : "#app",
+    data : {
+        value : 0,
+        timeout:2000
+    },
+    computed :{
+        result : function(){
+            return this.value == 33 ? "Bitti" : "henuz bitmedi";
+        }
+    },
+    watch : {
+        result :function(value){
+            vm =this;
+            setTimeout(function(){
+                    vm.value=0;
+            },this.timeout)
+        }
+    }
+
+});
+</script>
+</html>

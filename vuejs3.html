@@ -12,6 +12,8 @@
         <button v-on:click="showAlert">sayac Goster</button>
         <button v-on:click="counter++">Birer birer arttir</button>
         <p>{{counter}}</p>
+        <p>{{counter>10 ? "counter 10'dan büyüktür" :"Counter 10'dan kucuktur"}}</p>
+
         <!-- dom tarafından sağlanan event objesinden event verisi almak için-->
         <p v-on:mousemove="koordinatGuncelle(2,$event)">Sayfa Koordinatları{{ x }},{{ y }}
         <!-- event modifier : bir fiilin kendisine has özellikleri yasaklamamızı sağlar. varsayılan davranışını iptal etmiş olduk-->
@@ -29,7 +31,6 @@
                 counter : 0,
                 x : 0,
                 y : 0
-
             },
             methods : {
                 plus : function(){
