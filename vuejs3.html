@@ -13,7 +13,13 @@
         <button v-on:click="counter++">Birer birer arttir</button>
         <p>{{counter}}</p>
         <!-- dom tarafından sağlanan event objesinden event verisi almak için-->
-        <p v-on:mousemove="koordinatGuncelle">Sayfa Koordinatları{{ x }},{{ y }}</p>
+        <p v-on:mousemove="koordinatGuncelle(2,$event)">Sayfa Koordinatları{{ x }},{{ y }}
+        <!-- event modifier : bir fiilin kendisine has özellikleri yasaklamamızı sağlar. varsayılan davranışını iptal etmiş olduk-->
+                <span v-on:mousemove.stop>Gizli bölme</span>
+        </p>
+        <!-- event yakalamak için entere bastıktan sonra çalışmasını söylüyoruz-->
+        <input type="text" v-on:keyup.enter="showInputAlert">
+        <button v-on:click="ekranaBas('can')">Bas</button>       
     </div>
 </body>
 <script>
@@ -32,9 +38,16 @@
                 showAlert :function(){
                     alert(this.counter);
                 },
-                koordinatGuncelle : function(event){
+                koordinatGuncelle : function(step,event){
+                    this.counter = step;
                     this.x = event.clientX;
                     this.y = event.clientY;
+                },
+                ekranaBas :function(name){
+                    alert(name);
+                },
+                showInputAlert : function(event){
+                    alert(event.target.value)
                 }
             }
         });
