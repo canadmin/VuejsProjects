@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+        <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <style>
+    .box{
+        width: 100px;
+        height: 100px;
+        background-color: gray;
+        display: inline-block;
+        margin-right: 5px;
+    }
+    .yellow{
+        background-color: yellow;
+    }
+    .blue{
+        background-color: blue;
+    }
+    .black{
+        background-color: black;
+    }
+    </style>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body><!--dive tıklandığı an renk sarı olsun tekrar tıklanırsa eski haline dönsün-->
+    <div id="app"> 
+        <!-- class elemente bind etme işlemi normalde v-bind: yapıyoruz-->
+        <div :class="{yellow : change,blue :!change}" class="box" @click="change= !change"></div>
+        <!---olayı reactive yapmak için bu işlemi computed içerisinde yapmak lazım -->
+        <div :class="divClass"  @click="change=!change" class="box"></div>
+        <!--birden fazla class tanımlamak için array syntax'ı devreye giriyor-->
+        <div class="box" :class="[color,{yellow : change}]"></div>
+        <hr>
+        <input type="text" v-model="color">
+    </div>
+</body>
+<script>
+    new Vue({
+        el : "#app",
+        data : {
+            change : false,
+            color : "black"
+        },
+        methods : {
+            renkDegistir : function(event){
+            }
+        },
+        computed : {
+            divClass : function(){
+                return {
+                    yellow :this.change,
+                    blue :!this.change
+                }
+            }
+        }
+    });
+</script>
+</html>

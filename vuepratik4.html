@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+<body>
+    <div id="app">
+        
+        <p>{{value}}</p>
+        <button v-on:click="counter++">Arttır</button>
+        <!-- v-once kullanırsak ilk değer her zaman korunur ve değişikliklerden etkilenmez-->
+        <p v-once>{{counter}}</p>
+        <p>{{counter +1}}</p>
+        <p>{{ok ? 'Yes': 'No'}}</p>
+        <p>{{counter}}</p>
+        <p v-if="seen">Now you see me</p>
+        <input type="text" v-model="counter">
+        <p>message : {{message}}</p>
+        <p>computed reversed message {{reversedMessage}}</p>        
+    </div>
+   
+    
+</body>
+
+<script>
+new Vue({
+    el:"#app",
+    data:{
+        message : 'Merhaba',
+        value : "can",
+        counter : 0,
+        ok : true,
+        seen:true
+    },
+    computed : {
+        reversedMessage :function(){
+            return this.message.split('').reverse().join('');
+
+        }
+    }
+});
+</script>
+</html>
