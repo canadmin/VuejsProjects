@@ -1,36 +1,30 @@
 <!DOCTYPE html>
 <html lang="en">
     <head>
-    <style>
-    .box{
-        width: 100px;
-        height: 100px;
-        background-color: gray;
-        display: inline-block;
-        margin-right: 5px;
-    }
-    .yellow{
-        background-color: yellow;
-    }
-    .blue{
-        background-color: blue;
-    }
-    .black{
-        background-color: black;
-    }
-    </style>
     <meta charset="UTF-8">
     <title>Document</title>
     <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
     </head>
 <body>
     <div id="app">
-        <div class="box"></div>
-        <div class="box"></div>
-        <div class="box"></div>
-        <hr>
-        <input type="text">        
+      <p v-if="show">Beni gorebilir misin</p>
+      <p v-else>Peki beni gorebilir misin</p>
+      <button @click="show = !show">Goster/Gizle</button>
+      <button @click ="showText = !showText">Text Goster</button>
+      <p v-show="showText">
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Cupiditate a possimus excepturi eaque facilis, est illum. Molestias autem rem quaerat?
+      </p>
     </div>
     
 </body>
+
+<script>
+    var example = new Vue({
+        el : "#app",
+        data : {
+            show : false,
+            showText : false
+        }
+    });
+</script>
 </html>
