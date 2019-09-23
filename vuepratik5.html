@@ -8,7 +8,7 @@
 <body>
 <ul id="example-1">
     <!-- for döngüsü-->
-    <li v-for="item in items">
+    <li v-for="item of items">
         {{item.message}}
     </li>
 </ul>
@@ -17,7 +17,16 @@
         <li v-for="(item, index) in items">
             {{ mesaj }} - {{ index }} - {{ item.message }}
         </li>
-    </ol>
+ </ol>
+
+ <div id="example-3">
+     <li v-for="value in object">
+            {{value}}
+     </li>
+     <li v-for="(value,name) in object">
+        {{name}} : {{value}}
+     </li>
+    </div>
     
 </body>
 <script>
@@ -40,6 +49,16 @@
                 {message : "can"},
                 {message : "yard"}
             ]
+        }
+    });
+    var example3 = new Vue({
+        el : "#example-3",
+        data : {
+            object : {
+                title  : "Merhaba",
+                author : "can yard",
+                publishedAt : "1997-04-04"
+            }
         }
     });
 </script>
