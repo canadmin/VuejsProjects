@@ -1,0 +1,7 @@
+{
+  "presets": [
+    ["env", { "modules": false }],
+    "stage-3"
+  ]
+}
+//bu dosyanın görevi ecma script 6 yı ecma script 5 e çevirmesi

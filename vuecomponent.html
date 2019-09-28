@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+
+</head>
+<body>
+<div id="app"> 
+        <my-comp></my-comp>
+</div> 
+<hr>
+<div id="app2"> 
+</div> 
+<script>
+    //component benim için tekrar kullanılabilirlik sağlıyor
+    //vue jsde eğer bir component kullanıyorsanız data bi object değil bir fonksiyon olmalıdır ve bu data geriye bir obje döndürmelidir
+/*
+var data = {
+    status : "pasif"
+}*/
+// boyle bi tanımlama yaparsak component içerisindeki obje kendi vue instance sini çalıştırıyor
+/*Vue.component('my-comp',{
+    data :function() {
+      return {
+            status : "Pasif"
+      } 
+    },
+    template : '<p> Sunucu Durumu : {{status}} (<button @click="changeStatus ">degistir</button>) </p>',
+    methods : {
+        changeStatus : function(){
+            this.status = "Aktif"
+        }
+    }
+});*/
+
+//global component
+var cpm = {
+    data :function() {
+      return {
+            status : "Pasif"
+      } 
+    },
+    template : '<p> Sunucu Durumu : {{status}} (<button @click="changeStatus ">degistir</button>) </p>',
+    methods : {
+        changeStatus : function(){
+            this.status = "Aktif"
+        }
+    }
+}
+new Vue({
+    el : "#app",
+    components : {
+        "my-comp" : cpm
+    }
+});
+
+new Vue({
+    el : "#app2"
+});
+</script>    
+</body>
+</html>
