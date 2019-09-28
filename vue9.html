@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+<body>
+<div id="app">
+    <ul>
+        <li v-for="(product,index) in products">
+            {{index}} : {{product}} 
+        </li>
+    </ul>
+    <ul>
+        <li v-for="personal in persons">  
+            <ul>
+            <li v-for="item in personal">
+                {{item}}
+            </li>
+        </ul>
+        </li>
+    </ul>
+</div>
+
+</body>
+<script>
+    new Vue({
+        el : "#app",
+        data : {
+            products : ["Monitör","Klavye","Mouse","Fettahoğlu Yayık Sallama Makinası"],
+            persons : [
+                {name : "Can yard", email : "canyard@gmail.com"},
+                {name : "Yusuf ali", email : "yusuf@gmail.com"},
+                {name : "Hasan cerit", email : "denizli20@gmail.com"}
+            ]
+        }
+    });
+</script>
+</html>
