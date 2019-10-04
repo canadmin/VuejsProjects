@@ -10,6 +10,6 @@ export default {
     components : {
         "lamp-status" : LampStatus
     }
-    
+
 }
 </script>
