@@ -22,14 +22,14 @@
     },
     data : function(){
       return {
-        title : "Gökhan",
+        title : "can",
         childData : "",
         age : 25
       }
     },
     methods : {
       changeName(){
-        this.title = "Defne.."
+        this.title = "can bin yard.."
       }
     }
   }

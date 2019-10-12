@@ -15,7 +15,7 @@
     props : {
       name : {
         type : String,
-        default : "videosinif.com"
+        default : "asdasd.com"
       },
       age : String
     },
@@ -24,7 +24,7 @@
         return this.name.split("").reverse().join("");
       },
       sendToParent(){
-        this.$emit("data", "kablosuzkedi" );
+        this.$emit("data", "asdafasfasf" );
       }
     },
     created(){
